@@ -14,6 +14,10 @@ config/name="Angry Animals"
 run/main_scene="res://scenes/level/level.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
 
+[autoload]
+
+SignalManager="*res://singletons/signal_manager.gd"
+
 [display]
 
 window/stretch/mode="canvas_items"
