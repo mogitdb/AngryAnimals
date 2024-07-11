@@ -7,6 +7,8 @@
 radius = 128.236
 
 [node name="Animal" type="RigidBody2D"]
+input_pickable = true
+freeze = true
 script = ExtResource("1_pc0in")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -21,4 +23,13 @@ shape = SubResource("CircleShape2D_xciry")
 position = Vector2(-0.5, -9.53674e-07)
 scale = Vector2(2.05, 2.4)
 
+[node name="Label" type="Label" parent="."]
+offset_left = -30.0
+offset_top = -47.0
+offset_right = 25.0
+offset_bottom = -24.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "DEBUG"
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
