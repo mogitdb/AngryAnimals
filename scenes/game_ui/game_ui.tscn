@@ -1,0 +1,68 @@
+[gd_scene load_steps=7 format=3 uid="uid://b7psbyv7q2xvx"]
+
+[ext_resource type="FontFile" uid="uid://buik302fk8q0v" path="res://assets/fonts/LuckiestGuy-Regular.ttf" id="1_0kt8p"]
+[ext_resource type="Script" path="res://scenes/game_ui/game_ui.gd" id="1_3n4cq"]
+[ext_resource type="LabelSettings" uid="uid://cibiehqlmhh1m" path="res://assets/lg_96_red.tres" id="2_xr66m"]
+[ext_resource type="LabelSettings" uid="uid://rok6ht5aixoe" path="res://assets/lg_48_wh.tres" id="3_n75hb"]
+[ext_resource type="AudioStream" uid="uid://hxhq0s0nnu2e" path="res://assets/audio/jazzyfrenchy.mp3" id="4_io8bo"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_1cmjb"]
+font = ExtResource("1_0kt8p")
+font_size = 48
+shadow_size = 3
+shadow_color = Color(0, 0, 0, 1)
+
+[node name="GameUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_3n4cq")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="VB" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="LevelLabel" type="Label" parent="MarginContainer/VB"]
+layout_mode = 2
+text = "LEVEL 10"
+label_settings = SubResource("LabelSettings_1cmjb")
+
+[node name="AttemptsLabel" type="Label" parent="MarginContainer/VB"]
+layout_mode = 2
+text = "ATTEMPTS 100"
+label_settings = SubResource("LabelSettings_1cmjb")
+
+[node name="VB2" type="VBoxContainer" parent="MarginContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="MarginContainer/VB2"]
+layout_mode = 2
+text = "LEVEL COMPLETE"
+label_settings = ExtResource("2_xr66m")
+
+[node name="Label2" type="Label" parent="MarginContainer/VB2"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "...PRESS SPACE TO CONTINUE..."
+label_settings = ExtResource("3_n75hb")
+
+[node name="GameSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_io8bo")
